@@ -8,7 +8,7 @@ import tn.esprit.stationski.repositories.SkieurRepository;
 import java.util.List;
 @Service
 @AllArgsConstructor
-public class SkieurService implements  ISkieurService {
+public class SkieurServiceImp implements  ISkieurService {
     private SkieurRepository skieurRepository;
     @Override
     public  Skieur addSkieur( Skieur skieur) {
