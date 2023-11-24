@@ -4,5 +4,6 @@ import tn.esprit.stationski.entities.Skieur;
 
 public interface SkieurRepository extends JpaRepository<Skieur, Long> {
 
+    public Skieur addSkieurAndAssignToCours(Skieur skieur,Long numCours);
 }
 

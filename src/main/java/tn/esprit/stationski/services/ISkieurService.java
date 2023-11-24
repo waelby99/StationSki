@@ -8,4 +8,6 @@ public interface ISkieurService {
     public List<Skieur> getAllSkieur();
     public Skieur getSkieurById(long numSkieur);
     public void deleteSkieur(long numSkieur);
+
+    public Skieur addSkieurAndAssignToCours(Skieur skieur, Long numCours);
 }

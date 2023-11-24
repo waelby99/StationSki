@@ -20,7 +20,7 @@ public class MoniteurServiceImp implements IMoniteurService{
         Cours cours = coursRepository.findById(numCours).orElse(null);
         Set<Cours> coursSet= new HashSet<>();
         coursSet.add(cours);
-        moniteur.getCours().add(cours);
+        moniteur.setCours(coursSet);
         return moniteurRepositorys.save(moniteur);
     }
 }
