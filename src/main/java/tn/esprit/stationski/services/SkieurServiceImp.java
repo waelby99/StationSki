@@ -2,6 +2,7 @@ package tn.esprit.stationski.services;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.esprit.stationski.entities.Abonnement;
 import tn.esprit.stationski.entities.Cours;
 import tn.esprit.stationski.entities.Inscription;
 import tn.esprit.stationski.entities.Skieur;
@@ -24,6 +25,7 @@ public class SkieurServiceImp implements  ISkieurService {
         return skieurRepository.save(skieur);
     }
 
+
     @Override
     public Skieur updateSkieur(Skieur skieur) {
         return skieurRepository.save(skieur);
@@ -42,6 +44,13 @@ public class SkieurServiceImp implements  ISkieurService {
     @Override
     public void deleteSkieur(long numskieur) {
         skieurRepository.deleteById(numskieur);
+    }
+
+    @Override
+    public Skieur addSkieur1(Skieur skieur) {
+        Abonnement abonnement=new Abonnement();
+                skieur.setAbonnement(abonnement);
+        return null;
     }
 
     @Override

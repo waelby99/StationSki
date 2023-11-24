@@ -30,4 +30,9 @@ public class SkieurRestController {
     public void deleteSkieur(@PathVariable long  numSkieur){
         iSkieurService.deleteSkieur( numSkieur);
     }
+
+    @PostMapping("/addSkieurAndAssignToCours/{numCours}")
+    public Skieur addSkieurAndAssignToCours(@RequestBody Skieur skieur,@PathVariable Long numCours){
+        return  iSkieurService.addSkieurAndAssignToCours(skieur,numCours);
+    }
 }
