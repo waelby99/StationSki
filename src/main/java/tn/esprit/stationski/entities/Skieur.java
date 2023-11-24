@@ -30,7 +30,7 @@ public class Skieur implements  Serializable{
 
     private String ville;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Abonnement abonnement;
 
     @ManyToMany(mappedBy="skieurs")

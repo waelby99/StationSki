@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class SkieurServiceImp implements  ISkieurService {
-    private SkieurRepository skieurRepository;
+        private SkieurRepository skieurRepository;
     @Override
     public  Skieur addSkieur( Skieur skieur) {
         return skieurRepository.save(skieur);
