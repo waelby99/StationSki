@@ -14,7 +14,7 @@ import java.util.List;
 public class PisteServiceImp implements IPisteService{
     private PisteRepository pisteRepository;
     private SkieurRepository skieurRepository;
-    private
+
     @Override
     public Piste addPiste(Piste piste) {
         return pisteRepository.save(piste);
@@ -27,7 +27,7 @@ public class PisteServiceImp implements IPisteService{
 
     @Override
     public List<Piste> getAllPiste() {
-        return  pisteRepository.findAll();;
+        return  pisteRepository.findAll();
     }
 
     @Override
