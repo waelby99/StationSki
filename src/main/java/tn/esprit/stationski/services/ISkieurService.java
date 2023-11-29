@@ -1,6 +1,8 @@
 package tn.esprit.stationski.services;
 
 import tn.esprit.stationski.entities.Skieur;
+import tn.esprit.stationski.entities.TypeAbonnement;
+
 import java.util.List;
 public interface ISkieurService {
     public Skieur addSkieur (Skieur skieur );
@@ -10,4 +12,6 @@ public interface ISkieurService {
     public void deleteSkieur(long numSkieur);
     public Skieur addSkieur1 (Skieur skieur );
     public Skieur addSkieurAndAssignToCours(Skieur skieur, Long numCours);
+    public List<Skieur> retrieveSkieurByTypeAbonnement(TypeAbonnement typeAbonnement);
+
 }

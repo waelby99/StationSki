@@ -1,11 +1,11 @@
 package tn.esprit.stationski.services;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import tn.esprit.stationski.entities.Abonnement;
-import tn.esprit.stationski.entities.Cours;
-import tn.esprit.stationski.entities.Inscription;
-import tn.esprit.stationski.entities.Skieur;
+import tn.esprit.stationski.entities.*;
+import tn.esprit.stationski.repositories.AbonnementRepository;
 import tn.esprit.stationski.repositories.CoursRepository;
 import tn.esprit.stationski.repositories.InscriptionRepository;
 import tn.esprit.stationski.repositories.SkieurRepository;
@@ -14,12 +14,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+@Slf4j
 @Service
 @AllArgsConstructor
 public class SkieurServiceImp implements  ISkieurService {
         private SkieurRepository skieurRepository;
         private CoursRepository coursRepository;
         private InscriptionRepository inscriptionRepository;
+        private AbonnementRepository abonnementRepository;
     @Override
     public  Skieur addSkieur( Skieur skieur) {
         return skieurRepository.save(skieur);
@@ -48,9 +50,9 @@ public class SkieurServiceImp implements  ISkieurService {
 
     @Override
     public Skieur addSkieur1(Skieur skieur) {
-        Abonnement abonnement=new Abonnement();
-                skieur.setAbonnement(abonnement);
-        return null;
+        Abonnement abonnement=abonnementRepository.save(skieur.getAbonnement());
+
+        return skieurRepository.save(skieur);
     }
 
     @Override
@@ -64,5 +66,14 @@ public class SkieurServiceImp implements  ISkieurService {
             inscriptionRepository.save(inscription);
         }
         return skieurRepository.save(skieurAjoute);
+    }
+
+    @Override
+    public List<Skieur> retrieveSkieurByTypeAbonnement(TypeAbonnement typeAbonnement) {
+        return skieurRepository.findByAbonnement_TypeAbonnement(typeAbonnement);
+    }
+    @Scheduled(fixedRate = 60000)
+    public  void fixedRateMethod(){
+        log.info("salut");
     }
 }

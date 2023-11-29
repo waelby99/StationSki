@@ -3,6 +3,7 @@ package tn.esprit.stationski.restControllers;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.stationski.entities.Skieur;
+import tn.esprit.stationski.entities.TypeAbonnement;
 import tn.esprit.stationski.services.ISkieurService;
 
 import java.util.List;
@@ -35,4 +36,14 @@ public class SkieurRestController {
     public Skieur addSkieurAndAssignToCours(@RequestBody Skieur skieur,@PathVariable Long numCours){
         return  iSkieurService.addSkieurAndAssignToCours(skieur,numCours);
     }
+    @PostMapping("/addSkieurAb")
+    public Skieur addSkieur1(@RequestBody Skieur skieur){
+        return iSkieurService.addSkieur(skieur);
+    }
+
+    @GetMapping("/getAllSkieurTypeAbon/{typeAbonnement}")
+    public List<Skieur> getAllSkieurTypeAb(@PathVariable TypeAbonnement typeAbonnement){
+        return iSkieurService.retrieveSkieurByTypeAbonnement(typeAbonnement);
+    }
+
 }
