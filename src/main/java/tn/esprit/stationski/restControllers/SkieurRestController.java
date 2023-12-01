@@ -37,8 +37,8 @@ public class SkieurRestController {
         return  iSkieurService.addSkieurAndAssignToCours(skieur,numCours);
     }
     @PostMapping("/addSkieurAb")
-    public Skieur addSkieur1(@RequestBody Skieur skieur){
-        return iSkieurService.addSkieur(skieur);
+    public Skieur addSkieurAb(@RequestBody Skieur skieur){
+        return iSkieurService.addSkieurAbbon(skieur);
     }
 
     @GetMapping("/getAllSkieurTypeAbon/{typeAbonnement}")

@@ -11,22 +11,31 @@ import java.util.List;
 @AllArgsConstructor
 public class PisteRestController {
     private IPisteService iPisteService;
-  /*  @GetMapping("/r")
-    public List<Piste> retrieveAllSkieurs()
-    {return iPisteService.retrieveAllSkieurs();}
 
-    @PostMapping("/addSkieur")
-    public Skieur addSkieur(@RequestBody Skieur skieur){
-        return skieurService.addSkieur(skieur);
+    @GetMapping("/retrieveAllPistes")
+    public List<Piste> retrieveAllPistes(){
+        return iPisteService.getAllPiste();}
+
+    @PostMapping("/addPiste")
+    public Piste addPiste(@RequestBody Piste piste){
+        return iPisteService.addPiste(piste);}
+
+    @PutMapping("/updatePiste")
+    public Piste updatePiste(@RequestBody Piste piste){
+        return iPisteService.updatePiste(piste);}
+
+    @GetMapping("/retrievePiste/{numPiste}")
+    public Piste retrievePiste(@PathVariable Long numPiste){
+        return iPisteService.getPisteById(numPiste);}
+
+    @DeleteMapping("removePiste/{numPiste}")
+    public void removePiste(@PathVariable Long numPiste){
+        iPisteService.deletePiste(numPiste);
     }
 
-    @DeleteMapping("/removeSkieur/{numSkieur}")
-    public void removeSkieur(@PathVariable Long numSkieur){
-        skieurService.removeSkieur(numSkieur);}
 
-
-    @GetMapping("/retrieveSkieur/{numSkieur}")
-    public Skieur retrieveSkieur(@PathVariable Long numSkieur){
-        return skieurService.retrieveSkieur(numSkieur);
-    }*/
+    @PostMapping("/AssignPisteToSkieur/{numPiste}/{numSkieur}")
+    public Piste AssignPisteToSkieur(@PathVariable Long numPiste, @PathVariable Long numSkieur){
+        return  iPisteService.assignPisteToSkieur(numPiste, numSkieur);
+    }
 }

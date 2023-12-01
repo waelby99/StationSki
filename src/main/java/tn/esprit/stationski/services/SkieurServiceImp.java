@@ -48,12 +48,7 @@ public class SkieurServiceImp implements  ISkieurService {
         skieurRepository.deleteById(numskieur);
     }
 
-    @Override
-    public Skieur addSkieur1(Skieur skieur) {
-        Abonnement abonnement=abonnementRepository.save(skieur.getAbonnement());
 
-        return skieurRepository.save(skieur);
-    }
 
     @Override
     public Skieur addSkieurAndAssignToCours(Skieur skieur, Long numCours) {
@@ -67,6 +62,11 @@ public class SkieurServiceImp implements  ISkieurService {
         }
         return skieurRepository.save(skieurAjoute);
     }
+
+    @Override
+    public Skieur addSkieurAbbon(Skieur sk) {
+        Abonnement abonnement= abonnementRepository.save(sk.getAbonnement());
+        return skieurRepository.save(sk);}
 
     @Override
     public List<Skieur> retrieveSkieurByTypeAbonnement(TypeAbonnement typeAbonnement) {
